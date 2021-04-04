@@ -88,4 +88,20 @@ switch (document.querySelector(".content").id) {
             form()
         })
         break;
+
+    case "content-commande":
+        const homeBtn = document.querySelector("#homeBtn")
+        homeBtn.addEventListener("click", function () {
+            console.log("cc");
+            // remove product from basket
+            basket = []
+            console.log(basket);
+            // update local storage
+            localStorage.setItem("basket", JSON.stringify(basket))
+            localStorage.removeItem("id")
+            localStorage.removeItem("sum")
+            localStorage.removeItem("cardId")
+            window.location.href = "../index.html"
+        })
+        break;
 }
