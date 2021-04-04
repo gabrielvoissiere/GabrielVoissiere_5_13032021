@@ -2,9 +2,11 @@
 const apiData = JSON.parse(localStorage.getItem('data'));
 
 import {
-    apiType
+    apiType,
+    panier
 } from "./modele.js"
 const apiOption = apiType
+var basket = panier
 
 // create html card and show it
 const showProduct = (index) => {
@@ -77,6 +79,73 @@ const showProductOption = (index) => {
     card.appendChild(select)
 }
 
+const showBasket = () => {
+    // basket index count
+    let index = 0
+    // total price sum
+    let sum = 0
+
+    basket.forEach(elm => {
+        // htmlcontent 
+        let content = document.querySelector(".content")
+
+        // create html card for product element
+        let card = document.createElement("div")
+        card.classList.add("card")
+
+        // create image with class and src
+        let image = document.createElement("img")
+        image.classList.add("image")
+        image.setAttribute("src", basket[index].imageUrl)
+
+        // create product name
+        let firstname = document.createElement("h3")
+        firstname.classList.add("name")
+        firstname.innerHTML = basket[index].name
+
+        // create product price
+        let price = document.createElement("h4")
+        price.classList.add("price")
+        price.innerHTML = basket[index].price
+
+        // create product option
+        let option = document.createElement("p")
+        option.classList.add("option")
+        option.innerHTML = basket[index].option
+
+        // create delete button
+        let delBtn = document.createElement("button")
+        delBtn.classList.add("delBtn")
+        delBtn.setAttribute("id", index)
+        delBtn.innerHTML = "supprimer"
+
+        // add card in content
+        content.appendChild(card)
+
+        // add child in parent
+        card.appendChild(image)
+        card.appendChild(firstname)
+        card.appendChild(price)
+        card.appendChild(option)
+        card.appendChild(delBtn)
+
+        sum += basket[index].price
+
+        // add +1 to index
+        index++
+    });
+    // store sum
+    localStorage.setItem("sum", sum)
+    // show price in html
+    document.querySelector("#price").innerHTML = sum
+
+}
+
+const order = () =>{
+    document.querySelector("#nbcommande").innerHTML = localStorage.getItem("orderId")
+    document.querySelector("#prix").innerHTML = localStorage.getItem("sum")
+}
+
 // switch what to show according to the current page
 switch (document.querySelector(".content").id) {
 
@@ -93,5 +162,13 @@ switch (document.querySelector(".content").id) {
         // create card for selected product
         showProduct(localStorage.getItem("cardId"))
         showProductOption(localStorage.getItem("cardId"))
+        break;
+
+    case "content-panier": // BASKET PAGE
+        showBasket()
+        break;
+
+    case "content-commande": // BASKET PAGE
+        order()
         break;
 }
