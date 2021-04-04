@@ -1,0 +1,126 @@
+@import "scss/variable";
+
+@include reset;
+@include header;
+@include footer;
+
+main {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #content-home {
+        width: 45%;
+        height: 95%;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 15px;
+        overflow-y: scroll;
+
+        .card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: blueviolet;
+
+            img {
+                width: 40%;
+                height: 100%;
+            }
+
+            .textBox {
+                width: 60%;
+                text-align: center;
+
+                .name {
+                    font-size: 2.5rem;
+                }
+
+                .price {
+                    font-size: 1.5rem;
+                }
+
+                .description {
+                    display: none;
+                }
+            }
+        }
+
+        .card:nth-child(2n) {
+            background-color: rgb(216, 55, 176);
+        }
+    }
+
+    .titre {
+        height: 100%;
+        width: 55%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            font-size: 5rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        img {
+            width: auto;
+            height: 50%;
+            margin-top: 40px;
+        }
+    }
+
+    #content-produit {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            height: auto;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 25vw;
+                height: 18vw;
+                object-fit: contain;
+            }
+
+            .textBox {
+                width: 50%;
+                text-align: center;
+            }
+
+            select {
+                margin-top: 25px;
+                border: 2px solid blueviolet;
+                padding: 8px;
+                border-radius: 10px;
+            }
+        }
+
+        button {
+            background-color: blueviolet;
+            color: white;
+            font-size: 600;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
+}

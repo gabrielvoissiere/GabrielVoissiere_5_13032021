@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d55e797bfb.js" crossorigin="anonymous"></script>
+
     <title>Js test page</title>
 </head>
-<body>
 
-    <div id="content-home" class="content"></div>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.svg" alt="logo orinoco">
+            <h1>Orinoco</h1>
+        </div>
+        <a href="pages/panier.html">Mon panier <i class="fas fa-shopping-cart"></i> <span class="panier">0</span></a>
+    </header>
+
+    <main>
+        <div id="content-home" class="content"></div>
+        <div class="titre">
+            <h2>Orinoco</h2>
+            <h3>
+                vous le voulez ? vous l'avez !
+            </h3>
+            <img src="images/logo.svg" alt="logo orinoco">
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Orinoco - 2021</p>
+    </footer>
 
     <script type="module" src="js/vue.js"></script>
     <script type="module" src="js/controleur.js"></script>
 </body>
+
 </html>

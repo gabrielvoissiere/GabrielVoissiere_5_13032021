@@ -17,6 +17,7 @@ Number.prototype.mod = function (n) {
 // INDEX PAGE AND PRODUCT PAGE
 // create html card and show it
 const showProduct = (index) => {
+    document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
     // htmlcontent 
     let content = document.querySelector(".content")
 
@@ -29,6 +30,9 @@ const showProduct = (index) => {
     let image = document.createElement("img")
     image.classList.add("image")
     image.setAttribute("src", apiData[index].imageUrl)
+
+    let textBox = document.createElement("div")
+    textBox.classList.add("textBox")
 
     // create product name
     let firstname = document.createElement("h3")
@@ -50,9 +54,10 @@ const showProduct = (index) => {
 
     // add child in parent
     card.appendChild(image)
-    card.appendChild(firstname)
-    card.appendChild(price)
-    card.appendChild(description)
+    card.appendChild(textBox)
+    textBox.appendChild(firstname)
+    textBox.appendChild(price)
+    textBox.appendChild(description)
 }
 
 // PRODUCT PAGE

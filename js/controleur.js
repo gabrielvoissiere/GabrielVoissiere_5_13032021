@@ -2,7 +2,8 @@
 const apiData = JSON.parse(localStorage.getItem('data'));
 
 import {
-    panier, order
+    panier,
+    order
 } from "./modele.js"
 var basket = panier
 const form = order
@@ -44,6 +45,10 @@ switch (document.querySelector(".content").id) {
             // store the product as object in local storage
             basket.push(product)
             localStorage.setItem("basket", JSON.stringify(basket))
+            // show basket length
+            localStorage.setItem("basketLength", basket.length)
+            document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
+
         })
         break;
 
@@ -60,6 +65,7 @@ switch (document.querySelector(".content").id) {
                 console.log(basket);
                 // update local storage
                 localStorage.setItem("basket", JSON.stringify(basket))
+                localStorage.setItem("basketLength", basket.length)
                 // page reload
                 location.reload()
             })
@@ -72,6 +78,7 @@ switch (document.querySelector(".content").id) {
             console.log(basket);
             // update local storage
             localStorage.setItem("basket", JSON.stringify(basket))
+            localStorage.setItem("basketLength", basket.length)
             // page reload
             location.reload()
         })
