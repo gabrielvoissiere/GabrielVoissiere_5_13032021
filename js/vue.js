@@ -8,6 +8,13 @@ import {
 const apiOption = apiType
 var basket = panier
 
+// get modulo of calculation
+Number.prototype.mod = function (n) {
+    var m = ((this % n) + n) % n;
+    return m < 0 ? m + Math.abs(n) : m;
+}
+
+// INDEX PAGE AND PRODUCT PAGE
 // create html card and show it
 const showProduct = (index) => {
     // htmlcontent 
@@ -31,7 +38,7 @@ const showProduct = (index) => {
     // create product price
     let price = document.createElement("h4")
     price.classList.add("price")
-    price.innerHTML = apiData[index].price
+    price.innerHTML = apiData[index].price/100+","+apiData[index].price.mod(100)+" "+"€"
 
     // create product  description
     let description = document.createElement("p")
@@ -48,6 +55,7 @@ const showProduct = (index) => {
     card.appendChild(description)
 }
 
+// PRODUCT PAGE
 // create and show product option
 const showProductOption = (index) => {
     // get card in html 
@@ -79,6 +87,7 @@ const showProductOption = (index) => {
     card.appendChild(select)
 }
 
+// BASKET PAGE
 const showBasket = () => {
     // basket index count
     let index = 0
@@ -106,7 +115,7 @@ const showBasket = () => {
         // create product price
         let price = document.createElement("h4")
         price.classList.add("price")
-        price.innerHTML = basket[index].price
+        price.innerHTML = basket[index].price/100+","+basket[index].price.mod(100)+" "+"€"
 
         // create product option
         let option = document.createElement("p")
@@ -135,15 +144,18 @@ const showBasket = () => {
         index++
     });
     // store sum
-    localStorage.setItem("sum", sum)
+    localStorage.setItem("sum", sum/100+","+sum.mod(100)+" "+"€")
     // show price in html
-    document.querySelector("#price").innerHTML = sum
+    document.querySelector("#price").innerHTML = sum/100+","+sum.mod(100)+" "+"€"
 
 }
 
+// ORDER PAGE
 const order = () =>{
     document.querySelector("#nbcommande").innerHTML = localStorage.getItem("orderId")
     document.querySelector("#prix").innerHTML = localStorage.getItem("sum")
+    
+
 }
 
 // switch what to show according to the current page
@@ -168,7 +180,7 @@ switch (document.querySelector(".content").id) {
         showBasket()
         break;
 
-    case "content-commande": // BASKET PAGE
+    case "content-commande": // ORDERs PAGE
         order()
         break;
 }
