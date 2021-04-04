@@ -31,6 +31,7 @@ const showProduct = (index) => {
     image.classList.add("image")
     image.setAttribute("src", apiData[index].imageUrl)
 
+    // create text box
     let textBox = document.createElement("div")
     textBox.classList.add("textBox")
 
@@ -94,6 +95,7 @@ const showProductOption = (index) => {
 
 // BASKET PAGE
 const showBasket = () => {
+    document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
     // basket index count
     let index = 0
     // total price sum
@@ -111,6 +113,10 @@ const showBasket = () => {
         let image = document.createElement("img")
         image.classList.add("image")
         image.setAttribute("src", basket[index].imageUrl)
+
+        // create text box
+        let textBox = document.createElement("div")
+        textBox.classList.add("textBox")
 
         // create product name
         let firstname = document.createElement("h3")
@@ -138,10 +144,11 @@ const showBasket = () => {
 
         // add child in parent
         card.appendChild(image)
-        card.appendChild(firstname)
-        card.appendChild(price)
-        card.appendChild(option)
-        card.appendChild(delBtn)
+        card.appendChild(textBox)
+        textBox.appendChild(firstname)
+        textBox.appendChild(price)
+        textBox.appendChild(option)
+        textBox.appendChild(delBtn)
 
         sum += basket[index].price
 

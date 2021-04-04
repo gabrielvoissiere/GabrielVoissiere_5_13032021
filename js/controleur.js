@@ -49,6 +49,10 @@ switch (document.querySelector(".content").id) {
             localStorage.setItem("basketLength", basket.length)
             document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
 
+            btn.innerHTML = "Ajouter !"
+            setTimeout(() => {
+                btn.innerHTML = "Ajouter au panier"
+            }, 2000);
         })
         break;
 
@@ -108,6 +112,7 @@ switch (document.querySelector(".content").id) {
             localStorage.removeItem("id")
             localStorage.removeItem("sum")
             localStorage.removeItem("cardId")
+            localStorage.setItem("basketLength", 0)
             window.location.href = "../index.html"
         })
         break;

@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d55e797bfb.js" crossorigin="anonymous"></script>
+
     <title>Js test page</title>
 </head>
+
 <body>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.svg" alt="logo orinoco">
+            <h1>Orinoco</h1>
+        </div>
+        <nav>
+            <a id="homeBtn" href="../index.html">Accueil</a>
+        </nav>
+    </header>
 
-    
+    <main>
+        <div id="content-commande" class="content">
+            <h1>Votre commande a été envoyée !</h1>
+            <p>Numéro de commande : <span id="nbcommande"></span></p>
+            <p>Prix de la commande : <span id="prix"></span></p>
+        </div>
+    </main>
 
-    <div id="content-commande" class="content">
-        <h1>test de commande</h1>
-        <p>Numéro de commande : <span id="nbcommande"></span></p>
-        <p>Prix de la commande : <span id="prix"></span></p>
-        <button id="homeBtn">retourner a l'accueil</button>
-    </div>
+    <footer>
+        <p>Orinoco - 2021</p>
+    </footer>
     
     <script type="module" src="../js/vue.js"></script>
     <script type="module" src="../js/controleur.js"></script>

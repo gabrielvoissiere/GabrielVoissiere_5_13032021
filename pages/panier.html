@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d55e797bfb.js" crossorigin="anonymous"></script>
+
     <title>Js test page</title>
 </head>
+
 <body>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.svg" alt="logo orinoco">
+            <h1>Orinoco</h1>
+        </div>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a id="basket" href="panier.html">Mon panier <i class="fas fa-shopping-cart"></i> <span class="panier">0</span></a>
+        </nav>
+    </header>
 
-    <p><span id="price">0</span></p>
-    <button id="delBasket">vider le panier</button>
+    <main id="main-panier">
 
-    <div id="content-panier" class="content">
+        <div id="content-panier" class="content"></div>
 
-    </div>
+        <div class="form">
+            <p>Total de la commande : <span id="price">0</span></p>
+            <button id="delBasket">Vider le panier</button>
 
-    <form>
-        <div>
-            <p id="nameError" class="error-text"></p>
-            <label for="name">Nom</label>
-            <input id="name" type="text" name="firstName">
+            <form>
+                <div>
+                    <p id="nameError" class="error-text"></p>
+                    <label for="name">Nom</label>
+                    <input id="name" type="text" name="firstName">
+                </div>
+                <div>
+                    <p id="lastnameError" class="error-text"></p>
+                    <label for="lastname">Prénom</label>
+                    <input id="lastname" type="text" name="lastName">
+                </div>
+                <div>
+                    <p id="adresseError" class="error-text"></p>
+                    <label for="adress">Adresse</label>
+                    <input id="adress" type="text" name="adress">
+                </div>
+                <div>
+                    <p id="cityError" class="error-text"></p>
+                    <label for="city">Ville</label>
+                    <input id="city" type="text" name="city">
+                </div>
+                <div>
+                    <p id="emailError" class="error-text"></p>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email">
+                </div>
+            </form>
+            <button type="submit" id="submit">Passer la commande</button>
         </div>
-        <div>
-            <p id="lastnameError" class="error-text"></p>
-            <label for="lastname">Prénom</label>
-            <input id="lastname" type="text" name="lastName">
-        </div>
-        <div>
-            <p id="adresseError" class="error-text"></p>
-            <label for="adress">Adresse</label>
-            <input id="adress" type="text" name="adress">
-        </div>
-        <div>
-            <p id="cityError" class="error-text"></p>
-            <label for="city">Ville</label>
-            <input id="city" type="text" name="city">
-        </div>
-        <div>
-            <p id="emailError" class="error-text"></p>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email">
-        </div>
-    </form>
-    <button type="submit" id="submit">envoyer</button>
-    
+    </main>
+
+    <footer>
+        <p>Orinoco - 2021</p>
+    </footer>
+
     <script type="module" src="../js/vue.js"></script>
     <script type="module" src="../js/controleur.js"></script>
 </body>
+
 </html>
