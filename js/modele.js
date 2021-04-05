@@ -11,9 +11,25 @@ fetch(apiUrl).then(response => {
         console.error('fail to connect to api');
     }
 }).then(responseData => {
+    // remove loader 
+    document.getElementById("load").style.display = 'none'
     let apiData = responseData;
     // put data in local storage
     localStorage.setItem('data', JSON.stringify(apiData))
+}).catch(error => {
+    // remove loader and button
+    document.getElementById("load").style.display = 'none'
+    // create div for error msg with class
+    let errorMsg = document.createElement("div")
+    errorMsg.classList.add("errormsg")
+    // create p for text
+    let text = document.createElement("p")
+    text.innerHTML = "Une erreur de connection au serveur et surnevue. Veuillez nous excusez pour la gêne occasionée 😕"
+    // get content div in html
+    let content = document.querySelector(".content")
+    // add text in error msg and in content
+    errorMsg.appendChild(text)
+    content.appendChild(errorMsg)
 })
 
 // create basket
@@ -22,6 +38,7 @@ let panier = []
 // get local storage
 let store = JSON.parse(localStorage.getItem("basket"))
 
+// text panier content
 if (store == null) {
     // do nothing
 } else if (store == !null && panier == "") {

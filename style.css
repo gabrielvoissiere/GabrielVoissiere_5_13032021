@@ -126,6 +126,48 @@ footer {
   font-weight: 500;
 }
 
+#load {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#load img {
+  width: 50%;
+  height: auto;
+}
+
+.errormsg {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.errormsg p {
+  width: 80%;
+  font-size: 3rem;
+  text-align: center;
+  background-color: blueviolet;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
 main {
   width: 100%;
   height: 84%;
@@ -286,6 +328,7 @@ main #content-produit button {
   border: none;
   padding: 10px;
   border-radius: 10px;
+  margin-top: 25px;
 }
 
 main #content-commande {

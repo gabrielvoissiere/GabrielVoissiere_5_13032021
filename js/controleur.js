@@ -32,27 +32,61 @@ switch (document.querySelector(".content").id) {
             let index = localStorage.getItem("cardId")
             // create class for product
             class Product {
-                constructor(price, name, imageUrl, option, id) {
+                constructor(realprice, price, name, imageUrl, option, id, qts) {
+                    this.realprice = realprice;
                     this.price = price;
                     this.name = name;
                     this.imageUrl = imageUrl;
                     this.option = option;
-                    this.id = id
+                    this.id = id;
+                    this.qts = qts
                 }
             }
             // instance the product
-            let product = new Product(apiData[index].price, apiData[index].name, apiData[index].imageUrl, document.querySelector("select").value, apiData[index]._id)
-            // store the product as object in local storage
-            basket.push(product)
-            localStorage.setItem("basket", JSON.stringify(basket))
-            // show basket length
-            localStorage.setItem("basketLength", basket.length)
-            document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
+            let product = new Product(apiData[index].price, apiData[index].price, apiData[index].name, apiData[index].imageUrl, document.querySelector("select").value, apiData[index]._id, 1)
 
-            btn.innerHTML = "Ajouter !"
-            setTimeout(() => {
-                btn.innerHTML = "Ajouter au panier"
-            }, 2000);
+            // double elm verification
+            let testName = product.name
+            let testOption = product.option
+            let found = false
+            let elmIndex
+            let elmPrice
+
+            // check elm with existing elm
+            basket.forEach(elm => {
+                if (testName == elm.name && testOption == elm.option) {
+                    found = true
+                    elmIndex = basket.indexOf(elm)
+                    elmPrice = elm.realprice
+                }
+            });
+
+            // if elm is present or not yet
+            if (found == true) {
+                // add +1 to selected elm qts
+                basket[elmIndex].qts++
+                // price * qts
+                basket[elmIndex].price = elmPrice*basket[elmIndex].qts
+                // update basket
+                localStorage.setItem("basket", JSON.stringify(basket))
+
+                btn.innerHTML = "Ajouter !"
+                setTimeout(() => {
+                    btn.innerHTML = "Ajouter au panier"
+                }, 2000);
+            } else {
+                // store the product as object in local storage
+                basket.push(product)
+                localStorage.setItem("basket", JSON.stringify(basket))
+                // show basket length
+                localStorage.setItem("basketLength", basket.length)
+                document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
+
+                btn.innerHTML = "Ajouter !"
+                setTimeout(() => {
+                    btn.innerHTML = "Ajouter au panier"
+                }, 2000);
+            }
         })
         break;
 

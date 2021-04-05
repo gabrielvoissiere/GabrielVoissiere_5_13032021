@@ -133,6 +133,11 @@ const showBasket = () => {
         option.classList.add("option")
         option.innerHTML = basket[index].option
 
+        // create quantites
+        let quantites = document.createElement("p")
+        quantites.classList.add("qts")
+        quantites.innerHTML = basket[index].qts
+
         // create delete button
         let delBtn = document.createElement("button")
         delBtn.classList.add("delBtn")
@@ -148,6 +153,7 @@ const showBasket = () => {
         textBox.appendChild(firstname)
         textBox.appendChild(price)
         textBox.appendChild(option)
+        textBox.appendChild(quantites)
         textBox.appendChild(delBtn)
 
         sum += basket[index].price
@@ -186,6 +192,10 @@ switch (document.querySelector(".content").id) {
         // create card for selected product
         showProduct(localStorage.getItem("cardId"))
         showProductOption(localStorage.getItem("cardId"))
+        let card = document.querySelector(".card")
+        let btn = document.createElement("button")
+        btn.innerHTML = "Ajouter au panier"
+        card.appendChild(btn)
         break;
 
     case "content-panier": // BASKET PAGE
