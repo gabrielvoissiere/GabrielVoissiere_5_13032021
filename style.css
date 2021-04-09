@@ -413,6 +413,10 @@ main #content-commande p {
   font-size: 1.5rem;
 }
 
+#main-panier #content-panier .card .textBox .option, #main-panier #content-panier .card .textBox .qts {
+  font-size: 1.5rem;
+}
+
 #main-panier #content-panier .card .textBox .description {
   display: none;
 }

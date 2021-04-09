@@ -136,7 +136,7 @@ const showBasket = () => {
         // create quantites
         let quantites = document.createElement("p")
         quantites.classList.add("qts")
-        quantites.innerHTML = basket[index].qts
+        quantites.innerHTML = "Quantité :"+" "+basket[index].qts
 
         // create delete button
         let delBtn = document.createElement("button")
