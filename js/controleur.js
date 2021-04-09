@@ -56,7 +56,9 @@ switch (document.querySelector(".content").id) {
             basket.forEach(elm => {
                 if (testName == elm.name && testOption == elm.option) {
                     found = true
+                    // get elm index
                     elmIndex = basket.indexOf(elm)
+                    // get the real price
                     elmPrice = elm.realprice
                 }
             });
@@ -65,7 +67,7 @@ switch (document.querySelector(".content").id) {
             if (found == true) {
                 // add +1 to selected elm qts
                 basket[elmIndex].qts++
-                // price * qts
+                // price * qts to get new price
                 basket[elmIndex].price = elmPrice*basket[elmIndex].qts
                 // update basket
                 localStorage.setItem("basket", JSON.stringify(basket))
