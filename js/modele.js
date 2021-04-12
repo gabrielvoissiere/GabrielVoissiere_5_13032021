@@ -16,6 +16,75 @@ fetch(apiUrl).then(response => {
     let apiData = responseData;
     // put data in local storage
     localStorage.setItem('data', JSON.stringify(apiData))
+
+    // ! test zone
+    let dataCheck = false
+    let index = 0
+    apiData.forEach(elm => {
+        if (typeof (elm.name) == "string" && typeof (elm.price) == "number" && typeof (elm.imageUrl) == "string" && typeof (elm.description) == "string" && typeof (elm._id) == "string") {
+            dataCheck = true
+        } else {
+            dataCheck = false
+        }
+
+        index++
+    });
+
+    switch (apiType) {
+        case "teddies":
+            apiData.forEach(elm => {
+                // get product option
+                let elmOptions = elm.colors
+                // test lem type
+                elmOptions.forEach(elm => {
+                    if (typeof (elm) == "string") {
+                        dataCheck = true
+                    } else {
+                        dataCheck = false
+                    }
+                });
+            });
+            break;
+
+        case "cameras":
+            apiData.forEach(elm => {
+                // get product option
+                let elmOptions = elm.lense
+                // test lem type
+                elmOptions.forEach(elm => {
+                    if (typeof (elm) == "string") {
+                        dataCheck = true
+                    } else {
+                        dataCheck = false
+                    }
+                });
+            });
+            break;
+
+        case "furniture":
+            apiData.forEach(elm => {
+                // get product option
+                let elmOptions = elm.varnish
+                // test lem type
+                elmOptions.forEach(elm => {
+                    if (typeof (elm) == "string") {
+                        dataCheck = true
+                    } else {
+                        dataCheck = false
+                    }
+                });
+            });
+            break;
+    }
+
+    // check test result
+    if (dataCheck) {
+        console.log(" api's data check => test passed");
+    } else {
+        console.error(" api's data check => test refused");
+    }
+    // !
+
 }).catch(error => {
     // remove loader and button
     document.getElementById("load").style.display = 'none'

@@ -43,7 +43,7 @@ const showProduct = (index) => {
     // create product price
     let price = document.createElement("h4")
     price.classList.add("price")
-    price.innerHTML = apiData[index].price/100+","+apiData[index].price.mod(100)+" "+"€"
+    price.innerHTML = apiData[index].price / 100 + "," + apiData[index].price.mod(100) + " " + "€"
 
     // create product  description
     let description = document.createElement("p")
@@ -126,7 +126,7 @@ const showBasket = () => {
         // create product price
         let price = document.createElement("h4")
         price.classList.add("price")
-        price.innerHTML = basket[index].price/100+","+basket[index].price.mod(100)+" "+"€"
+        price.innerHTML = basket[index].price / 100 + "," + basket[index].price.mod(100) + " " + "€"
 
         // create product option
         let option = document.createElement("p")
@@ -136,7 +136,7 @@ const showBasket = () => {
         // create quantites
         let quantites = document.createElement("p")
         quantites.classList.add("qts")
-        quantites.innerHTML = "Quantité :"+" "+basket[index].qts
+        quantites.innerHTML = "Quantité :" + " " + basket[index].qts
 
         // create delete button
         let delBtn = document.createElement("button")
@@ -162,17 +162,17 @@ const showBasket = () => {
         index++
     });
     // store sum
-    localStorage.setItem("sum", sum/100+","+sum.mod(100)+" "+"€")
+    localStorage.setItem("sum", sum / 100 + "," + sum.mod(100) + " " + "€")
     // show price in html
-    document.querySelector("#price").innerHTML = sum/100+","+sum.mod(100)+" "+"€"
+    document.querySelector("#price").innerHTML = sum / 100 + "," + sum.mod(100) + " " + "€"
 
 }
 
 // ORDER PAGE
-const order = () =>{
+const order = () => {
     document.querySelector("#nbcommande").innerHTML = localStorage.getItem("orderId")
     document.querySelector("#prix").innerHTML = localStorage.getItem("sum")
-    
+
 
 }
 
