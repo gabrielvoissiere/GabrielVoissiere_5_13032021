@@ -19,15 +19,12 @@ fetch(apiUrl).then(response => {
 
     // ! test zone
     let dataCheck = false
-    let index = 0
     apiData.forEach(elm => {
         if (typeof (elm.name) == "string" && typeof (elm.price) == "number" && typeof (elm.imageUrl) == "string" && typeof (elm.description) == "string" && typeof (elm._id) == "string") {
             dataCheck = true
         } else {
             dataCheck = false
         }
-
-        index++
     });
 
     switch (apiType) {
@@ -153,6 +150,7 @@ const order = () => {
         if (testNumber.test(firstname.value) == true || testSpecialCaractere.test(firstname.value) == true || firstname.value == "") {
             nomError.innerHTML = "Vérifier/renseigner votre nom"
             firstname.classList.add("incorrect")
+            console.error("firstname error");
         } else {
             nomError.innerHTML = ""
             firstname.classList.remove("incorrect")
@@ -162,6 +160,7 @@ const order = () => {
         if (testNumber.test(lastname.value) == true || testSpecialCaractere.test(lastname.value) == true || lastname.value == "") {
             lastnameError.innerHTML = "Vérifier/renseigner votre prénom"
             lastname.classList.add("incorrect")
+            console.error("lastname error");
         } else {
             lastnameError.innerHTML = ""
             firstname.classList.remove("incorrect")
@@ -171,6 +170,7 @@ const order = () => {
         if (testSpecialCaracterePlace.test(address.value) == true || address.value == "") {
             adresseError.innerHTML = "Vérifier/renseigner votre adresse"
             address.classList.add("incorrect")
+            console.error("address error");
         } else {
             adresseError.innerHTML = ""
             address.classList.remove("incorrect")
@@ -180,6 +180,7 @@ const order = () => {
         if (testNumber.test(city.value) == true || testSpecialCaracterePlace.test(city.value) == true || city.value == "") {
             cityError.innerHTML = "Vérifier/renseigner votre ville"
             city.classList.add("incorrect")
+            console.error("city error");
         } else {
             cityError.innerHTML = ""
             city.classList.remove("incorrect")
@@ -189,6 +190,7 @@ const order = () => {
         if (testMail.test(email.value) == false) {
             emailError.innerHTML = "Vérifier/renseigner votre email"
             email.classList.add("incorrect")
+            console.error("email error");
         } else {
             emailError.innerHTML = ""
             email.classList.remove("incorrect")

@@ -72,6 +72,8 @@ switch (document.querySelector(".content").id) {
                 // update basket
                 localStorage.setItem("basket", JSON.stringify(basket))
 
+                console.log("product quantities update");
+
                 btn.innerHTML = "Ajouter !"
                 setTimeout(() => {
                     btn.innerHTML = "Ajouter au panier"
@@ -83,6 +85,8 @@ switch (document.querySelector(".content").id) {
                 // show basket length
                 localStorage.setItem("basketLength", basket.length)
                 document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
+
+                console.log("product add to basket");
 
                 btn.innerHTML = "Ajouter !"
                 setTimeout(() => {
