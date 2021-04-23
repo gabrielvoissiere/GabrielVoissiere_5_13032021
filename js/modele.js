@@ -18,12 +18,13 @@ fetch(apiUrl).then(response => {
     localStorage.setItem('data', JSON.stringify(apiData))
 
     // ! test zone
-    let dataCheck = false
+    let dataCheckElm = false
+    let dataCheckOption = false
     apiData.forEach(elm => {
         if (typeof (elm.name) == "string" && typeof (elm.price) == "number" && typeof (elm.imageUrl) == "string" && typeof (elm.description) == "string" && typeof (elm._id) == "string") {
-            dataCheck = true
+            dataCheckElm = true
         } else {
-            dataCheck = false
+            dataCheckElm = false
         }
     });
 
@@ -35,9 +36,9 @@ fetch(apiUrl).then(response => {
                 // test lem type
                 elmOptions.forEach(elm => {
                     if (typeof (elm) == "string") {
-                        dataCheck = true
+                        dataCheckOption = true
                     } else {
-                        dataCheck = false
+                        dataCheckOption = false
                     }
                 });
             });
@@ -50,9 +51,9 @@ fetch(apiUrl).then(response => {
                 // test lem type
                 elmOptions.forEach(elm => {
                     if (typeof (elm) == "string") {
-                        dataCheck = true
+                        dataCheckOption = true
                     } else {
-                        dataCheck = false
+                        dataCheckOption = false
                     }
                 });
             });
@@ -65,9 +66,9 @@ fetch(apiUrl).then(response => {
                 // test lem type
                 elmOptions.forEach(elm => {
                     if (typeof (elm) == "string") {
-                        dataCheck = true
+                        dataCheckOption = true
                     } else {
-                        dataCheck = false
+                        dataCheckOption = false
                     }
                 });
             });
@@ -75,10 +76,10 @@ fetch(apiUrl).then(response => {
     }
 
     // check test result
-    if (dataCheck) {
+    if (dataCheckElm == true && dataCheckOption == true) {
         console.log(" api's data check => test passed");
     } else {
-        console.error(" api's data check => test refused");
+        console.error(" api's data check => test refused - wrong data type");
     }
     // !
 

@@ -65,33 +65,46 @@ switch (document.querySelector(".content").id) {
 
             // if elm is present or not yet
             if (found == true) {
+                const qtsTest = basket[elmIndex].qts
                 // add +1 to selected elm qts
                 basket[elmIndex].qts++
                 // price * qts to get new price
-                basket[elmIndex].price = elmPrice*basket[elmIndex].qts
+                basket[elmIndex].price = elmPrice * basket[elmIndex].qts
                 // update basket
                 localStorage.setItem("basket", JSON.stringify(basket))
 
-                console.log("product quantities update");
-
-                btn.innerHTML = "Ajouter !"
-                setTimeout(() => {
-                    btn.innerHTML = "Ajouter au panier"
-                }, 2000);
+                // test if final qts is sup than initial qts
+                if (qtsTest < basket[elmIndex].qts) {
+                    console.log("product quantities update");
+                    // change button
+                    btn.innerHTML = "Ajouter !"
+                    setTimeout(() => {
+                        btn.innerHTML = "Ajouter au panier"
+                    }, 2000);
+                } else {
+                    console.error("failed quantities update");
+                }
             } else {
+                const basketInitSize = basket.length
                 // store the product as object in local storage
                 basket.push(product)
                 localStorage.setItem("basket", JSON.stringify(basket))
+                let basketFinalSize = basket.length
                 // show basket length
                 localStorage.setItem("basketLength", basket.length)
                 document.querySelector(".panier").innerHTML = localStorage.getItem("basketLength")
 
-                console.log("product add to basket");
+                // test if basket final size sup than init size
+                if (basketFinalSize > basketInitSize) {
+                    console.log("product add to basket");
 
-                btn.innerHTML = "Ajouter !"
-                setTimeout(() => {
-                    btn.innerHTML = "Ajouter au panier"
-                }, 2000);
+                    btn.innerHTML = "Ajouter !"
+                    setTimeout(() => {
+                        btn.innerHTML = "Ajouter au panier"
+                    }, 2000);
+                } else {
+                    console.error("failed add to basket");
+                }
             }
         })
         break;
