@@ -42,15 +42,28 @@
         align-items: center;
         justify-content: space-between;
 
+        @media screen and (max-width: 375px) {
+            justify-content: center;
+            flex-direction: column;
+        }
+
         .logo {
             height: 100%;
             display: flex;
             align-items: center;
             margin: 35px;
 
+            @media screen and (max-width: 375px) {
+                margin: 0px;
+            }
+
             img {
                 height: 80%;
                 margin-right: 15px;
+
+                @media screen and (max-width: 375px) {
+                    display: none;
+                }
             }
         }
 
@@ -63,10 +76,16 @@
             text-decoration: none;
             color: black;
             font-size: 1.4rem;
+            flex-wrap: wrap;
+
+            @media screen and (max-width: 375px) {
+                margin: 0px;
+            }
 
             a {
                 text-decoration: none;
                 color: black;
+                margin : 0px 10px;
             }
 
             #basket {
@@ -78,6 +97,11 @@
             text-decoration: none;
             color: black;
             font-size: 1.4rem;
+
+            @media screen and (max-width: 375px) {
+                width: 20vh;
+                margin: 0;
+            }
             }
         }
     }

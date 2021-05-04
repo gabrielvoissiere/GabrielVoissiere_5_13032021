@@ -14,6 +14,7 @@ fetch(apiUrl).then(response => {
     // remove loader 
     document.getElementById("load").style.display = 'none'
     let apiData = responseData;
+    console.log(apiData);
     // put data in local storage
     localStorage.setItem('data', JSON.stringify(apiData))
 
