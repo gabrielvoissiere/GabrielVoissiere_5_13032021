@@ -11,4 +11,4 @@ __Langage utilisés :__
 * CSS
 * JavaScript
 
-<a href=https://gabrielvoissiere.github.io/GabrielVoissiere_5_13032021/">Voir le projet</a>
+<a href="https://gabrielvoissiere.github.io/GabrielVoissiere_5_13032021/">Voir le projet</a>
